@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.11.3 on win32)" generated="2024-10-29T12:32:05.834868" rpa="false" schemaversion="5">
+<suite id="s1" name="Testdemo5" source="C:\Users\shubham.sonne\Automation_API\Robot5\pythonProject1\tests\testdemo5.robot">
+<test id="s1-t1" name="Open Dynamic Table Page" line="19">
+<kw name="Open Browser With Dynamic Table URL" type="SETUP">
+<kw name="Create Chrome Options">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-29T12:32:06.693984" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001D4860FE850&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-29T12:32:06.693984" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--start-maximized</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2024-10-29T12:32:06.704996" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-10-29T12:32:06.704996" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001D4860FE850&gt;</msg>
+<arg>${chrome_options}</arg>
+<arg>${options}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-10-29T12:32:06.704996" elapsed="0.000000"/>
+</kw>
+<doc>Create Chrome options for the WebDriver</doc>
+<status status="PASS" start="2024-10-29T12:32:06.693984" elapsed="0.011012"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-10-29T12:32:06.704996" level="INFO">Opening browser 'chrome' to base url 'https://testpages.herokuapp.com/styled/tag/dynamic-table.html'.</msg>
+<arg>${DYNAMIC_TABLE_URL}</arg>
+<arg>chrome</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-29T12:32:06.704996" elapsed="5.029604"/>
+</kw>
+<doc>Open the Chrome browser and navigate to the dynamic table URL</doc>
+<status status="PASS" start="2024-10-29T12:32:06.693984" elapsed="5.040616"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${TITLE_XPATH}</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-29T12:32:11.734600" elapsed="0.056175"/>
+</kw>
+<kw name="Click Table Data">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CLICK_TABLE}</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-29T12:32:11.793056" elapsed="0.051039"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-29T12:32:11.844863" level="INFO">Clicking element '(//summary[normalize-space()='Table Data'])[1]'.</msg>
+<arg>${CLICK_TABLE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-29T12:32:11.844797" elapsed="0.119264"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-29T12:32:11.964061" level="INFO">Clicking element '//textarea[@id='jsondata']'.</msg>
+<arg>${CLICK_JSONXPATH}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-29T12:32:11.964061" elapsed="0.098508"/>
+</kw>
+<kw name="Clear Element Text" owner="SeleniumLibrary">
+<arg>${CLICK_JSONXPATH}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-29T12:32:12.062569" elapsed="0.076858"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-29T12:32:12.139427" level="INFO">Typing text '[{"name": "Bob", "age": 20, "gender": "male"}, {"name": "George", "age": 42, "gender": "male"}, {"name": "Sara", "age": 42, "gender": "female"}, {"name": "Conor", "age": 40, "gender": "male"}, {"name": "Jennifer", "age": 42, "gender": "female"}]' into text field '//textarea[@id='jsondata']'.</msg>
+<arg>${CLICK_JSONXPATH}</arg>
+<arg>${JsonData}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-29T12:32:12.139427" elapsed="2.525821"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${CLICK_REFRESHED}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2024-10-29T12:32:14.665248" elapsed="0.312564"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-29T12:32:14.977812" level="INFO">Clicking element '//button[@id='refreshtable']'.</msg>
+<arg>${CLICK_REFRESHED}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-29T12:32:14.977812" elapsed="0.134602"/>
+</kw>
+<doc>Click on the table data element after ensuring it's visible</doc>
+<status status="PASS" start="2024-10-29T12:32:11.790775" elapsed="3.321639"/>
+</kw>
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<kw name="Get Table Data">
+<msg time="2024-10-29T12:32:15.231366" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.231366" elapsed="0.000000">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.231366" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.231366" elapsed="0.000000">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.231366" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.231366" elapsed="0.000000">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.231366" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.231366" elapsed="0.000000">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.247057" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.231366" elapsed="0.015691">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.248565" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.231366" elapsed="0.017199">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.248565" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.231366" elapsed="0.017199">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.248565" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.231366" elapsed="0.017199">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.248565" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.217352" elapsed="0.031213">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.248565" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.217352" elapsed="0.031213">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.248565" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.217352" elapsed="0.031213">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.248565" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.217352" elapsed="0.031213">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.248565" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.217352" elapsed="0.031213">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.248565" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.217352" elapsed="0.031213">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.248565" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.217352" elapsed="0.031213">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.248565" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.217352" elapsed="0.031213">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.248565" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.217352" elapsed="0.031213">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.248565" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.217352" elapsed="0.031213">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.248565" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.217352" elapsed="0.031213">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.263082" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.217352" elapsed="0.045730">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.263082" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.216839" elapsed="0.046243">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.263082" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.215252" elapsed="0.047830">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.263082" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.202237" elapsed="0.060845">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.263082" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.202237" elapsed="0.060845">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.263082" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.202237" elapsed="0.060845">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.263082" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.202237" elapsed="0.060845">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.263082" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.202237" elapsed="0.060845">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.263082" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.202237" elapsed="0.060845">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.263082" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.202237" elapsed="0.060845">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.263082" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.202237" elapsed="0.060845">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.263082" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.202237" elapsed="0.060845">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.263082" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.202237" elapsed="0.060845">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.263082" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.202237" elapsed="0.060845">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.263082" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.199223" elapsed="0.063859">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.263082" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.199223" elapsed="0.079547">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.278770" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.196211" elapsed="0.082559">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.280521" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.196211" elapsed="0.084310">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.280521" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.196211" elapsed="0.084310">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.280521" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.195647" elapsed="0.084874">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.280521" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.183226" elapsed="0.097295">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.280521" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.183226" elapsed="0.097295">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.280521" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.183226" elapsed="0.097295">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.280521" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.183226" elapsed="0.097295">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.280521" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.183226" elapsed="0.097295">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.280521" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.183226" elapsed="0.097295">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.280521" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.183226" elapsed="0.097295">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.280521" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.183226" elapsed="0.097295">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.280521" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.183226" elapsed="0.097295">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.280521" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.183226" elapsed="0.097295">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.280521" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.167599" elapsed="0.112922">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.280521" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.167599" elapsed="0.112922">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.294537" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.167599" elapsed="0.126938">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.294537" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.167599" elapsed="0.128243">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.295842" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.167599" elapsed="0.128243">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.295842" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.167599" elapsed="0.128243">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.295842" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.167599" elapsed="0.128243">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.295842" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.167599" elapsed="0.128243">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.295842" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.167599" elapsed="0.128243">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.295842" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.167599" elapsed="0.128243">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.302356" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.167599" elapsed="0.134757">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.302356" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.167599" elapsed="0.134757">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.302356" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.167599" elapsed="0.134757">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.302356" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.167599" elapsed="0.134757">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.302356" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.159383" elapsed="0.142973">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.302356" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.159383" elapsed="0.142973">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.302356" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.159383" elapsed="0.142973">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.302356" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.159383" elapsed="0.142973">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.302356" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.151361" elapsed="0.150995">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.151361" elapsed="0.159060">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.151361" elapsed="0.159060">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.151361" elapsed="0.159060">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.151361" elapsed="0.159060">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.151361" elapsed="0.159060">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.151361" elapsed="0.159060">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.146837" elapsed="0.163584">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.146837" elapsed="0.163584">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.146837" elapsed="0.163584">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.145802" elapsed="0.164619">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.144764" elapsed="0.165657">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.143240" elapsed="0.167181">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.135220" elapsed="0.175201">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.135220" elapsed="0.175201">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.135220" elapsed="0.175201">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.135220" elapsed="0.175201">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.135220" elapsed="0.175201">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.135220" elapsed="0.175201">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.128702" elapsed="0.181719">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.128702" elapsed="0.181719">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.310421" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.128702" elapsed="0.181719">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.326106" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.128702" elapsed="0.197404">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.327483" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.127659" elapsed="0.199824">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.327483" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.118816" elapsed="0.208667">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.327483" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.118816" elapsed="0.208667">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.327483" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.118816" elapsed="0.208667">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.327483" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.118816" elapsed="0.208667">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.327483" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.118816" elapsed="0.208667">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.327483" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.116375" elapsed="0.211108">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.327483" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.116375" elapsed="0.211108">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.327483" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.114792" elapsed="0.212691">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<msg time="2024-10-29T12:32:15.327483" level="FAIL">Maximum limit of started keywords and control structures exceeded.</msg>
+<doc>Extract data from the table and return it as a list of dictionaries</doc>
+<status status="FAIL" start="2024-10-29T12:32:15.113448" elapsed="0.214035">Maximum limit of started keywords and control structures exceeded.</status>
+</kw>
+<errors>
+<msg time="2024-10-29T12:32:15.327483" level="ERROR">Maximum limit of started keywords and control structures exceeded.
+
+Try --help for usage information.</msg>
+</errors>
+</robot>
